@@ -1,0 +1,118 @@
+/* PRESETS */
+:root{
+    /* COLORS */
+    --cream: #fbebd2;
+    --red: #cc414c;
+    --dark-grey: #322f28;
+    --light-brown: #a28762;
+    --light-green: #889d64;
+    --yellow: #e0b256;
+    --light-blue: #628484;
+
+    /* FONTS */
+    --ff-derive: "Derive";
+    --ff-times: Times;
+
+    --fs-title: 130px;
+    --fs-h2: 30px;
+    --fs-h3: 20px;
+    --fs-p: 20px;
+
+    /* CORNER ROUNDING */
+
+    /* SPACING */
+    --section-padding: 40px;
+}
+
+/* FONTS */
+@font-face {
+    font-family: 'Derive';
+    src: url('./assets/fonts/derive-font-1740389714-0/Derive-BF65ea8bbbcb698.ttf');
+}
+
+/* RESETS */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+a, img, span, button{
+    display: block;
+}
+
+button{
+    font: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+html{
+    font-family: var(--ff-times);
+    scroll-behavior: smooth;
+    padding: 90px;
+}
+
+body{
+    background: var(--cream);
+    color: var(--dark-grey); 
+}
+
+h1{
+    font-size: var(--fs-title);
+}
+
+h2{
+    font-size: var(--fs-h2);
+}
+
+h3{
+    font-size: var(--fs-h3);
+}
+
+p{
+    font-size: var(--fs-p);
+}
+
+/* STYLING */
+
+#main-frame{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.grid-background{
+    background-color: var(--light-brown);
+    height: 500px;
+    width: 100%;
+    z-index: 99;
+    position: absolute;
+}
+
+.drawings{
+    background-color: var(--light-blue);
+    height: 500px;
+    width: 100%;
+    z-index: 100;
+    position: absolute;
+}
+
+.controls{
+    background-color: var(--light-green);
+}
