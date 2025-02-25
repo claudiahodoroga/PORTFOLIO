@@ -9,11 +9,13 @@
 </head>
 <body>
     <div id="main-frame" class="scheme-1">
-        <canvas id="canvas"></canvas>
+        <div class="background-design">
+            <canvas id="canvas"></canvas>
+        </div>
         <header class="header">
             <div class="title" id="landing">
-                <h1>Claudia Rebeca</h1>
-                <p>The description goes here</p>
+                <h1 id="site-title">Claudia Rebeca</h1>
+                <p id="subtitle">The description goes here</p>
             </div>
             <nav class="navbar">
                 <ol>
@@ -25,26 +27,39 @@
             </nav>
         </header>
 
-        <section class="home"></section>
-
-        <section class="about me">
-            <p>
-                <span>Here I will place info about who I am</span>
-            </p>
-        </section>
-
-        <section class="projects">
-            <p>
-                <span>Here I will place info about projects</span>
-            </p>
-        </section>
-
-        <section class="contact">
-            <p>
-                <span>Here I will place contact info</span>
-            </p>
-        </section>
+        <div class="page-content">
+            <div class="content-wrapper">
+                <section class="home">
+                    <div class="home-content">
     
+                    </div>
+                </section>
+    
+                <section class="about">
+                    <div class="about-content">
+                        <p>
+                            <span>Here I will place info about who I am</span>
+                        </p>
+                    </div>
+                </section>
+    
+                <section class="projects">
+                    <div class="projects-content">
+                        <h3>Projects</h3>
+                        <div class="projects-list">
+                            <a id="project-1">Project 1</a>
+                            <a id="project-2">Project 2</a>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="contact">
+                    <div class="contact-content">
+                        
+                    </div>
+                </section>
+            </div>
+        </div>  
     </div>
 
 </body>
