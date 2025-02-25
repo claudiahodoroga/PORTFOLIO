@@ -24,12 +24,6 @@
     --section-padding: 40px;
 }
 
-/* FONTS */
-@font-face {
-    font-family: 'Derive';
-    src: url('./assets/fonts/derive-font-1740389714-0/Derive-BF65ea8bbbcb698.ttf');
-}
-
 /* RESETS */
 
 *{
@@ -38,12 +32,13 @@
     padding: 0;
 }
 
-li{
+li, ol, ul{
     list-style: none;
 }
 
 a{
     text-decoration: none;
+    color: inherit;
 }
 
 a, img, span, button{
@@ -57,34 +52,41 @@ button{
     cursor: pointer;
 }
 
+h1, h2, h3, p{
+    font-weight: inherit;
+    font-size: inherit;
+}
+
 html{
+    line-height: 1;
+    user-select: none;
     font-family: var(--ff-times);
     scroll-behavior: smooth;
-    padding: 90px;
 }
+
+@media(min-width: 800px){
+    :root{
+        --fs-title: 40px;
+        --fs-h1: 20px;
+        --fs-h2: 16px;
+        --fs-h3: 16px;
+        --fs-p: 14px;
+    }
+}
+
+/* FONTS */
+@font-face {
+    font-family: 'Derive';
+    src: url('./assets/fonts/derive-font-1740389714-0/Derive-BF65ea8bbbcb698.ttf');
+}
+
+/* STYLING */
 
 body{
     background: var(--cream);
     color: var(--dark-grey); 
+    overscroll-behavior: none;
 }
-
-h1{
-    font-size: var(--fs-title);
-}
-
-h2{
-    font-size: var(--fs-h2);
-}
-
-h3{
-    font-size: var(--fs-h3);
-}
-
-p{
-    font-size: var(--fs-p);
-}
-
-/* STYLING */
 
 #main-frame{
     padding: 25px;
