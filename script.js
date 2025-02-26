@@ -9,6 +9,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('canvas');
     const pages = document.querySelectorAll('.page');
     const navItems = document.querySelectorAll('.nav-item');
+    const projectLinks = document.querySelectorAll('.project-link');
+    const projectInfo = document.querySelector('.project-info');
+    const projectDesc = document.getElementById('project-desc');
+    const projectImgs = document.getElementById('project-imgs');
+
+    const projectData = {
+        "project-1": {
+            desc: "Led the project management for a team-based game development project, establishing efficient workflows and communication protocols. Coordinated cross-functional teams including artists, programmers, and sound designers to deliver milestones on schedule. Implemented Agile methodologies adapted for academic environment, resulting in successful delivery despite resource constraints.",
+            images: ["img1.jpg", "img2.jpg"]
+        },
+        "project-2": {
+            desc: "Description 2.",
+            images: ["img3.jpg", "img4.jpg"]
+        }
+    };
     
     sectionTitle.style.opacity = 0;
     subtitle.style.opacity = 0;
@@ -18,6 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
     pages.forEach(page => {
         page.style.opacity = 0;
         page.style.display = 'none';
+    });
+
+    projectLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            projectLinks.forEach(item => item.classList.remove('active')); // Remove active from all
+            link.classList.add('active'); // Set clicked item as active
+
+            const projectId = link.id;
+            if (projectData[projectId]) {
+                projectDesc.textContent = projectData[projectId].desc;
+                projectImgs.innerHTML = projectData[projectId].images.map(img => 
+                    `<img src="assets/images/${img}" alt="${projectId}" style="width:150px; margin:5px;">`
+                ).join('');
+
+                projectInfo.classList.add('open'); // Show info
+            }
+        });
     });
 
     //initial animation

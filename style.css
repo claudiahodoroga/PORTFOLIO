@@ -292,10 +292,30 @@ body{
     }
 }
 
-.projects-list{
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
+.project-link {
+    display: block;
+    font-size: var(--fs-h3);
+    color: var(--dark-grey);
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.project-link.active {
+    color: var(--red);
+    transform: translateX(15px);
+}
+
+/* Styling for project info */
+.project-info {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+}
+
+.project-info.open {
+    opacity: 1;
+    max-height: 500px; /* Adjust height based on content */
 }
 
 @media(min-width: 1280px){
