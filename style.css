@@ -13,9 +13,9 @@
     --ff-derive: "Derive";
     --ff-times: Times;
 
-    --fs-title: 48px;
+    --fs-title: 78px;
     --fs-h2: 20px;
-    --fs-h3: 16px;
+    --fs-h3: 18px;
     --fs-p: 16px;
 
     /* CORNER ROUNDING */
@@ -66,7 +66,7 @@ html{
 
 @media(min-width: 1024px){
     :root{
-        --fs-title: 130px;
+        --fs-title: 100px;
         --fs-h2: 30px;
         --fs-h3: 20px;
         --fs-p: 20px;
@@ -97,7 +97,6 @@ body{
     left: 0;
     height: 100%;
     width: 100%;
-    position: fixed;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -121,9 +120,7 @@ body{
     left: 0;
     height: 100%;
     width: 100%;
-    position: fixed;
     overflow: hidden;
-    mix-blend-mode: difference;
 }
 
 .content-wrapper{
@@ -134,10 +131,10 @@ body{
 .header{
     top: var(--section-padding);
     left: var(--section-padding);
-    margin: var(--section-padding);
+    margin: 60px var(--section-padding);
     z-index: 99;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -153,21 +150,23 @@ body{
 
 #subtitle{
     margin-top: 5px;
-    font-size: var(--fs-h2);
+    font-size: var(--fs-h3);
 }
 
 @media(min-width: 1280px){
     .header{
-        font-size: 40px;
+        font-size: var(--fs-title);
+        flex-direction: column;
     }
 }
 
 .navbar ol{
     display: flex;
     flex-direction: column;
-    row-gap: 15px;
-    margin-top: 50px;
+    row-gap: 28px;
+    margin-top: 12px;
     margin-right: var(--section-padding);
+    align-items: flex-end;
 }
 
 @media (min-width: 768px) {
@@ -186,6 +185,12 @@ body{
         flex-direction: row;
         column-gap: 30px;
         margin-top: 0;
+        
+    }
+
+    .section-title{
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -237,8 +242,11 @@ body{
     opacity: 0;
 }
 
+
+/* SECTIONS */
+
 .page{
-    display: none;
+    display: flex;
     width: 100%;
 }
 
@@ -252,14 +260,32 @@ body{
     display: block;
 }
 
+#about{
+    position: absolute;
+    right: var(--section-padding);
+    left: var(--section-padding);
+}
+
+.about-content p{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    width: 70%;
+}
+
+
 #projects{
-    padding: var(--section-padding);
+    padding: 50px;
     text-align: right;
     white-space: nowrap;
 }
 
 @media(min-width: 1280px){
     #projects{
+        padding: var(--section-padding);
+    }
+    
+    #home{
         padding: var(--section-padding);
     }
 }
