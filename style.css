@@ -151,6 +151,7 @@ body{
 #subtitle{
     margin-top: 5px;
     font-size: var(--fs-h3);
+    line-height: 24px;
 }
 
 @media(min-width: 1280px){
@@ -169,7 +170,7 @@ body{
     align-items: flex-end;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .header {
         flex-direction: row;
         justify-content: space-between;
@@ -260,25 +261,26 @@ body{
     display: block;
 }
 
-#about{
+#about, #projects{
     position: absolute;
     right: var(--section-padding);
     left: var(--section-padding);
 }
 
-.about-content p{
+.about-content p, .projects-content{
     display: flex;
     flex-direction: column;
-    gap: 100px;
+    gap: 50px;
     width: 70%;
+    line-height: 24px;
+    text-align: justify;
 }
 
-
-#projects{
+/*#projects{
     padding: 50px;
     text-align: right;
     white-space: nowrap;
-}
+}*/
 
 @media(min-width: 1280px){
     #projects{
@@ -293,14 +295,12 @@ body{
 .projects-list{
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     row-gap: 30px;
 }
 
 @media(min-width: 1280px){
     .project{
         display: flex;
-        flex-direction: row-reverse;
         justify-content: flex-start;
         align-items: baseline;
         column-gap: 15px;
