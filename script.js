@@ -35,36 +35,56 @@ document.addEventListener('DOMContentLoaded', () => {
         page.style.display = 'none';
     });
 
+    // toggle animation for projects
     projectLinks.forEach(link => {
         link.addEventListener('click', () => {
             const isActive = link.classList.contains('active');
             
-            // close active project on click
+            // close active projects
             if (isActive) {
                 link.classList.remove('active');
-                projectInfo.classList.remove('open');
+                
+                projectInfo.style.opacity = 0;
+                projectInfo.style.maxHeight = '0';
+                projectInfo.style.paddingTop = '0';
+                projectInfo.style.paddingBottom = '0';
+                
+                setTimeout(() => {
+                    projectInfo.classList.remove('open');
+                }, 600);
+                
                 return;
             }
             
-            // switch active project on click
+            // switch active project
             projectLinks.forEach(item => item.classList.remove('active'));
             link.classList.add('active');
-    
+            
             const projectId = link.id;
             
-            // fade out active project
+            // transition between project info
             if (projectInfo.classList.contains('open')) {
                 projectInfo.style.opacity = 0;
+                projectInfo.style.maxHeight = '0';
                 
                 setTimeout(() => {
                     updateProjectContent(projectId);
-                    setTimeout(() => {
-                        projectInfo.style.opacity = 1;
-                    }, 50);
+                    
+                    void projectInfo.offsetWidth;
+                    
+                    projectInfo.style.opacity = 1;
+                    projectInfo.style.maxHeight = '600px';
+                    projectInfo.style.paddingTop = '15px';
+                    projectInfo.style.paddingBottom = '15px';
                 }, 300);
             } else {
                 updateProjectContent(projectId);
                 projectInfo.classList.add('open');
+                
+                void projectInfo.offsetWidth;
+                
+                projectInfo.style.opacity = 1;
+                projectInfo.style.maxHeight = '600px';
             }
         });
     });
