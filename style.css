@@ -104,6 +104,28 @@ body{
     color: var(--dark-grey);
 }
 
+/* THEME STYLES */
+#main-frame.scheme-1 .nav-item.is-selected .nav-select,
+#main-frame.scheme-1 .project-link.active,
+#main-frame.scheme-1 .project-info.open {
+    color: var(--red);
+    border-color: var(--red);
+}
+
+#main-frame.scheme-2 .nav-item.is-selected .nav-select,
+#main-frame.scheme-2 .project-link.active,
+#main-frame.scheme-2 .project-info.open {
+    color: var(--light-blue);
+    border-color: var(--light-blue);
+}
+
+#main-frame.scheme-3 .nav-item.is-selected .nav-select,
+#main-frame.scheme-3 .project-link.active,
+#main-frame.scheme-3 .project-info.open {
+    color: var(--light-green);
+    border-color: var(--light-green);
+}
+
 .background-design{
     top: var(--section-padding);
     bottom: var(--section-padding);

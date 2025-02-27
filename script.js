@@ -25,15 +25,88 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
+    // Define color schemes
+    const colorSchemes = [
+        // Default scheme
+        ['#cc414c', '#a28762', '#889d64', '#e0b256', '#628484'],
+        // Blue-centric scheme
+        ['#628484', '#41a6cc', '#56a0e0', '#4162cc', '#628498'],
+        // Green-centric scheme
+        ['#889d64', '#64cc41', '#56e087', '#41cc82', '#649862']
+    ];
+    
     sectionTitle.style.opacity = 0;
     subtitle.style.opacity = 0;
     navbar.style.opacity = 0;
     canvas.style.opacity = 0;
     
+    // Create home page content with color scheme buttons
+    function createHomeContent() {
+        const homeContent = document.querySelector('.home-content');
+        
+        // Create welcome text
+        const welcomeText = document.createElement('div');
+        welcomeText.className = 'welcome-text';
+        welcomeText.innerHTML = `
+            <h2>Welcome to my portfolio</h2>
+            <p>Explore my projects and discover my approach to frontend design and development.</p>
+        `;
+        
+        // Create scheme selector
+        const schemeSelector = document.createElement('div');
+        schemeSelector.className = 'scheme-selector';
+        schemeSelector.innerHTML = `
+            <h3>Choose a color theme:</h3>
+            <div class="scheme-buttons"></div>
+        `;
+        
+        // Add content to home
+        homeContent.appendChild(welcomeText);
+        homeContent.appendChild(schemeSelector);
+        
+        // Add scheme buttons after elements are in the DOM
+        const buttonsContainer = schemeSelector.querySelector('.scheme-buttons');
+        
+        colorSchemes.forEach((scheme, index) => {
+            const button = document.createElement('button');
+            button.className = 'scheme-button';
+            button.setAttribute('data-scheme', index);
+            button.style.backgroundColor = scheme[0];
+            
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.scheme-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Change the scheme
+                patternManager.setColorScheme(index);
+                
+                // Update main frame class
+                mainFrame.className = '';
+                mainFrame.classList.add(`scheme-${index + 1}`);
+            });
+            
+            buttonsContainer.appendChild(button);
+        });
+        
+        // Set first button as active
+        const firstButton = buttonsContainer.querySelector('.scheme-button');
+        if (firstButton) {
+            firstButton.classList.add('active');
+        }
+    }
+    
     pages.forEach(page => {
         page.style.opacity = 0;
         page.style.display = 'none';
     });
+
+    // Initialize the pattern manager
+    const patternManager = new PatternManager(canvas, colorSchemes);
 
     // toggle animation for projects
     projectLinks.forEach(link => {
@@ -235,86 +308,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // logic for generating the background design in the canvas
-        // Initialize canvas with the dot animation
-        function setupCanvas() {
-            const ctx = canvas.getContext('2d');
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-            
-            // Simple animation example - moving dots
-            const dots = [];
-            const numDots = 50;
-            
-            for (let i = 0; i < numDots; i++) {
-                dots.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 3 + 1,
-                    dx: (Math.random() - 0.5) * 1,
-                    dy: (Math.random() - 0.5) * 1,
-                    color: getRandomColor()
-                });
-            }
-            
-            function getRandomColor() {
-                const colors = [
-                    'rgba(204, 65, 76, 0.7)',    // red
-                    'rgba(162, 135, 98, 0.7)',   // light-brown
-                    'rgba(136, 157, 100, 0.7)',  // light-green
-                    'rgba(224, 178, 86, 0.7)',   // yellow
-                    'rgba(98, 132, 132, 0.7)'    // light-blue
-                ];
-                return colors[Math.floor(Math.random() * colors.length)];
-            }
-            
-            function animate() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                dots.forEach(dot => {
-                    // Draw dot
-                    ctx.beginPath();
-                    ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = dot.color;
-                    ctx.fill();
-                    
-                    // Move dot
-                    dot.x += dot.dx;
-                    dot.y += dot.dy;
-                    
-                    // Bounce off edges
-                    if (dot.x + dot.radius > canvas.width || dot.x - dot.radius < 0) {
-                        dot.dx *= -1;
-                    }
-                    
-                    if (dot.y + dot.radius > canvas.height || dot.y - dot.radius < 0) {
-                        dot.dy *= -1;
-                    }
-                });
-                
-                requestAnimationFrame(animate);
-            }
-            
-            // Handle resize
-            window.addEventListener('resize', () => {
-                canvas.width = canvas.offsetWidth;
-                canvas.height = canvas.offsetHeight;
-            });
-            
-            animate();
-        }
-        
-        setupNavEvents();
-        initLoadAnim();
-        setTimeout(setupCanvas, 2500);
-        setTimeout(handleInitialSection, 3000);
+    // Initialize components
+    createHomeContent();
+    setupNavEvents();
+    initLoadAnim();
+    setTimeout(() => patternManager.initialize(), 2500);
+    setTimeout(handleInitialSection, 3000);
 
-        window.addEventListener('popstate', () =>{
-            const hash = window.location.hash.substring(1);
-            if (hash && document.getElementById(hash)) {
-                showSection(hash);
-            } else {
-                showSection('home');
-            }
-        });
+    window.addEventListener('popstate', () =>{
+        const hash = window.location.hash.substring(1);
+        if (hash && document.getElementById(hash)) {
+            showSection(hash);
+        } else {
+            showSection('home');
+        }
+    });
 });
