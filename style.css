@@ -250,7 +250,29 @@ body{
 .page{
     display: flex;
     width: 100%;
+    right: var(--section-padding);
+    left: var(--section-padding);
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--light-brown) var(--cream);
 }
+
+.page::-webkit-scrollbar {
+    width: 8px;
+}
+
+.page::-webkit-scrollbar-track {
+    background: var(--cream);
+    border-radius: 10px;
+}
+
+.page::-webkit-scrollbar-thumb {
+    background-color: var(--light-brown);
+    border-radius: 10px;
+    border: 2px solid var(--cream);
+}
+
 
 #home{
     position: absolute;
