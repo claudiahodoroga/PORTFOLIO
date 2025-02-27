@@ -149,9 +149,10 @@ body{
 }
 
 #subtitle{
-    margin-top: 5px;
+    margin-top: 8px;
     font-size: var(--fs-h3);
-    line-height: 24px;
+    line-height: 1.4;
+    max-width: 90%;
 }
 
 @media(min-width: 1280px){
@@ -270,17 +271,11 @@ body{
 .about-content p, .projects-content{
     display: flex;
     flex-direction: column;
-    gap: 16x    px;
+    gap: 16px;
     width: 70%;
     line-height: 24px;
     text-align: justify;
 }
-
-/*#projects{
-    padding: 50px;
-    text-align: right;
-    white-space: nowrap;
-}*/
 
 @media(min-width: 1280px){
     #projects{
@@ -297,7 +292,9 @@ body{
     font-size: var(--fs-h3);
     color: var(--dark-grey);
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s ease;
+    margin-bottom: 10px;
+    padding: 5px 0;
 }
 
 .project-link.active {
@@ -305,17 +302,31 @@ body{
     transform: translateX(15px);
 }
 
-/* Styling for project info */
 .project-info {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: opacity 0.5s ease, max-height 0.5s ease;
+    transition: opacity 0.6s ease-in-out, max-height 0.8s ease-in-out, padding 0.5s ease-in-out;
+    margin-top: 0;
+    padding: 0 15px;
 }
 
 .project-info.open {
     opacity: 1;
-    max-height: 500px; /* Adjust height based on content */
+    max-height: 600px;
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 2px solid var(--light-brown);
+}
+
+.project-image {
+    width: 150px;
+    margin: 10px 5px;
+    transition: transform 0.3s ease;
+}
+
+.project-image:hover {
+    transform: scale(1.05);
 }
 
 @media(min-width: 1280px){
@@ -356,4 +367,55 @@ body{
     width: 100%;
     height: 100%;
     display: block;
+}
+
+/* SMALL SCREENS */
+@media (max-width: 768px) {
+    :root {
+        --section-padding: 15px;
+        --fs-title: 60px;
+    }
+    
+    .header {
+        margin: 30px var(--section-padding);
+        /*flex-direction: column;*/
+    }
+    
+    #section-title {
+        font-size: var(--fs-title); 
+    }
+    
+    #subtitle {
+        max-width: 70%;
+        margin-top: 5px;
+        line-height: 1.5;
+    }
+    
+    .navbar ol {
+        /*flex-direction: row;*/
+        flex-wrap: wrap;
+        column-gap: 20px;
+        row-gap: 15px;
+        margin-top: 20px;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    
+    .about-content p, .projects-content {
+        width: 100%;
+    }
+
+    #home, #about, #projects, #contact {
+        position: absolute;
+        right: var(--section-padding);
+        left: var(--section-padding);
+        top: 150px;
+        padding-bottom: 50px;
+    }
+    
+    .project-image {
+        max-width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
 }

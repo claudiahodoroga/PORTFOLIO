@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const projectData = {
         "project-1": {
-            desc: "Led the project management for a team-based game development project, establishing efficient workflows and communication protocols. Coordinated cross-functional teams including artists, programmers, and sound designers to deliver milestones on schedule. Implemented Agile methodologies adapted for academic environment, resulting in successful delivery despite resource constraints.",
+            desc: "As lead project manager, I implemented SCRUM methodology with sprint-based workflows that kept our Unity game development on track. Beyond management, I contributed technically by programming advanced visual elements including custom toon and water shaders, a comprehensive sound system, and post-processing effects that defined the game's distinctive aesthetic. My dual role extended to 3D modeling and UI design, demonstrating my ability to balance technical leadership with hands-on development.",
             images: ["img1.jpg", "img2.jpg"]
         },
         "project-2": {
-            desc: "Description 2.",
+            desc: "Under a 24-hour deadline, I collaborated with a classmate to conceptualize, design, and develop a promotional website for our podcast project. This high-pressure challenge showcased my rapid ideation and execution skills. I translated our collaborative design into functioning code using HTML, CSS, and JavaScript, creating an effective digital presence that met our tight timeline without compromising quality or user experience.",
             images: ["img3.jpg", "img4.jpg"]
         }
     };
@@ -37,17 +37,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
     projectLinks.forEach(link => {
         link.addEventListener('click', () => {
-            projectLinks.forEach(item => item.classList.remove('active')); // Remove active from all
-            link.classList.add('active'); // Set clicked item as active
-
+            const isActive = link.classList.contains('active');
+            
+            // close active project on click
+            if (isActive) {
+                link.classList.remove('active');
+                projectInfo.classList.remove('open');
+                return;
+            }
+            
+            // switch active project on click
+            projectLinks.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
+    
             const projectId = link.id;
-            if (projectData[projectId]) {
-                projectDesc.textContent = projectData[projectId].desc;
-                projectImgs.innerHTML = projectData[projectId].images.map(img => 
-                    `<img src="assets/images/${img}" alt="${projectId}" style="width:150px; margin:5px;">`
-                ).join('');
-
-                projectInfo.classList.add('open'); // Show info
+            
+            // fade out active project
+            if (projectInfo.classList.contains('open')) {
+                projectInfo.style.opacity = 0;
+                
+                setTimeout(() => {
+                    updateProjectContent(projectId);
+                    setTimeout(() => {
+                        projectInfo.style.opacity = 1;
+                    }, 50);
+                }, 300);
+            } else {
+                updateProjectContent(projectId);
+                projectInfo.classList.add('open');
             }
         });
     });
@@ -118,15 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, interval);
     }
 
-    function scrollToTop(){
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
     // logic for switching between sections
-
     function showSection(sectionId) {
         // current section
         let visibleSection = null;
@@ -195,6 +204,16 @@ document.addEventListener('DOMContentLoaded', () => {
             history.pushState(null, null, '#home');
         }
     }    
+
+    // logic for updating project section content
+    function updateProjectContent(projectId) {
+        if (projectData[projectId]) {
+            projectDesc.textContent = projectData[projectId].desc;
+            projectImgs.innerHTML = projectData[projectId].images.map(img => 
+                `<img src="assets/images/${img}" alt="${projectId}" class="project-image">`
+            ).join('');
+        }
+    }
 
     // logic for generating the background design in the canvas
         // Initialize canvas with the dot animation
