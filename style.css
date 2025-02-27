@@ -270,7 +270,7 @@ body{
 .about-content p, .projects-content{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 16x    px;
     width: 70%;
     line-height: 24px;
     text-align: justify;
