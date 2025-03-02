@@ -1,4 +1,5 @@
 // website loading 
+import { PatternManager } from "./PatternManager.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     //initialize elements
@@ -13,100 +14,52 @@ document.addEventListener('DOMContentLoaded', () => {
     const projectInfo = document.querySelector('.project-info');
     const projectDesc = document.getElementById('project-desc');
     const projectImgs = document.getElementById('project-imgs');
+    const projectVideo = document.getElementById('project-video');
 
     const projectData = {
         "project-1": {
             desc: "As lead project manager, I implemented SCRUM methodology with sprint-based workflows that kept our Unity game development on track. Beyond management, I contributed technically by programming advanced visual elements including custom toon and water shaders, a comprehensive sound system, and post-processing effects that defined the game's distinctive aesthetic. My dual role extended to 3D modeling and UI design, demonstrating my ability to balance technical leadership with hands-on development.",
-            images: ["img1.jpg", "img2.jpg"]
+            images: [],
+            video: "./assets/gotb-playthrough.mvk"
         },
         "project-2": {
             desc: "Under a 24-hour deadline, I collaborated with a classmate to conceptualize, design, and develop a promotional website for our podcast project. This high-pressure challenge showcased my rapid ideation and execution skills. I translated our collaborative design into functioning code using HTML, CSS, and JavaScript, creating an effective digital presence that met our tight timeline without compromising quality or user experience.",
-            images: ["img3.jpg", "img4.jpg"]
+            images: ["./assets/renderiza2.1.png"],
+            video: "./assets/renderiza2-clip.mp4"
         }
     };
     
-    // Define color schemes
+    // color schemes
     const colorSchemes = [
-        // Default scheme
-        ['#cc414c', '#a28762', '#889d64', '#e0b256', '#628484'],
-        // Blue-centric scheme
-        ['#628484', '#41a6cc', '#56a0e0', '#4162cc', '#628498'],
-        // Green-centric scheme
-        ['#889d64', '#64cc41', '#56e087', '#41cc82', '#649862']
+        ['#cc414c', '#a28762', '#889d64', '#e0b256', '#628484'],  // default
+        ['#628484', '#41a6cc', '#56a0e0', '#4162cc', '#628498'],  // blue
+        ['#889d64', '#64cc41', '#56e087', '#41cc82', '#649862']   // green
     ];
     
     sectionTitle.style.opacity = 0;
     subtitle.style.opacity = 0;
     navbar.style.opacity = 0;
     canvas.style.opacity = 0;
-    
-    // Create home page content with color scheme buttons
-    function createHomeContent() {
-        const homeContent = document.querySelector('.home-content');
-        
-        // Create welcome text
-        const welcomeText = document.createElement('div');
-        welcomeText.className = 'welcome-text';
-        welcomeText.innerHTML = `
-            <h2>Welcome to my portfolio</h2>
-            <p>Explore my projects and discover my approach to frontend design and development.</p>
-        `;
-        
-        // Create scheme selector
-        const schemeSelector = document.createElement('div');
-        schemeSelector.className = 'scheme-selector';
-        schemeSelector.innerHTML = `
-            <h3>Choose a color theme:</h3>
-            <div class="scheme-buttons"></div>
-        `;
-        
-        // Add content to home
-        homeContent.appendChild(welcomeText);
-        homeContent.appendChild(schemeSelector);
-        
-        // Add scheme buttons after elements are in the DOM
-        const buttonsContainer = schemeSelector.querySelector('.scheme-buttons');
-        
-        colorSchemes.forEach((scheme, index) => {
-            const button = document.createElement('button');
-            button.className = 'scheme-button';
-            button.setAttribute('data-scheme', index);
-            button.style.backgroundColor = scheme[0];
-            
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                document.querySelectorAll('.scheme-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                // Change the scheme
-                patternManager.setColorScheme(index);
-                
-                // Update main frame class
-                mainFrame.className = '';
-                mainFrame.classList.add(`scheme-${index + 1}`);
-            });
-            
-            buttonsContainer.appendChild(button);
+
+    // initialize pattern manager
+    const patternManager = new PatternManager(canvas, colorSchemes);
+    setTimeout(() => patternManager.drawPattern(), 500);
+
+    // color scheme changes
+    document.querySelectorAll('.scheme-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const index = parseInt(button.getAttribute('data-scheme'));
+            patternManager.setColorScheme(index);
         });
-        
-        // Set first button as active
-        const firstButton = buttonsContainer.querySelector('.scheme-button');
-        if (firstButton) {
-            firstButton.classList.add('active');
-        }
-    }
+    });
+
+    window.addEventListener('hashchange', () => patternManager.adjustOpacity()); // adjust opacity
+
     
     pages.forEach(page => {
         page.style.opacity = 0;
         page.style.display = 'none';
     });
-
-    // Initialize the pattern manager
-    const patternManager = new PatternManager(canvas, colorSchemes);
 
     // toggle animation for projects
     projectLinks.forEach(link => {
@@ -302,17 +255,33 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateProjectContent(projectId) {
         if (projectData[projectId]) {
             projectDesc.textContent = projectData[projectId].desc;
-            projectImgs.innerHTML = projectData[projectId].images.map(img => 
-                `<img src="assets/images/${img}" alt="${projectId}" class="project-image">`
-            ).join('');
+            
+            // clear previous content
+            projectImgs.innerHTML = '';
+            projectVideo.innerHTML = '';
+            
+            // add images if available
+            if (projectData[projectId].images && projectData[projectId].images.length > 0) {
+                projectImgs.innerHTML = projectData[projectId].images.map(img => 
+                    `<img src="${img}" alt="${projectId}" class="project-image">`
+                ).join('');
+            }
+            
+            // cdd video if available
+            if (projectData[projectId].video) {
+                projectVideo.innerHTML = `
+                    <video class="project-video" controls>
+                        <source src="${projectData[projectId].video}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>`;
+            }
         }
     }
 
     // Initialize components
-    createHomeContent();
     setupNavEvents();
     initLoadAnim();
-    setTimeout(() => patternManager.initialize(), 2500);
+    //setTimeout(() => patternManager.initialize(), 2500);
     setTimeout(handleInitialSection, 3000);
 
     window.addEventListener('popstate', () =>{
