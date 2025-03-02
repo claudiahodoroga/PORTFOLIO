@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
         "project-1": {
             desc: "As lead project manager, I implemented SCRUM methodology with sprint-based workflows that kept our Unity game development on track. Beyond management, I contributed technically by programming advanced visual elements including custom toon and water shaders, a comprehensive sound system, and post-processing effects that defined the game's distinctive aesthetic. My dual role extended to 3D modeling and UI design, demonstrating my ability to balance technical leadership with hands-on development.",
             images: [],
-            video: "./assets/gotb-playthrough.mvk"
+            video: "./assets/gotb-playthrough.mp4"
         },
         "project-2": {
             desc: "Under a 24-hour deadline, I collaborated with a classmate to conceptualize, design, and develop a promotional website for our podcast project. This high-pressure challenge showcased my rapid ideation and execution skills. I translated our collaborative design into functioning code using HTML, CSS, and JavaScript, creating an effective digital presence that met our tight timeline without compromising quality or user experience.",
             images: ["./assets/renderiza2.1.png"],
-            video: "./assets/renderiza2-clip.mp4"
+            video: "renderiza2-clip.mp4"
         }
     };
     
