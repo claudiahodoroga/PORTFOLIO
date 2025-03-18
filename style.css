@@ -54,7 +54,6 @@ h1, h2, h3{
 
 html{
     line-height: 1;
-    user-select: none;
     font-family: var(--ff-2);
     scroll-behavior: smooth;
 }
@@ -65,6 +64,13 @@ html{
 }
 
 /*STYLING*/
+html, body{
+    height: 100%;
+}
 
+body #light-theme{
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
 
 /*RESPONSIVE STYLING    */
