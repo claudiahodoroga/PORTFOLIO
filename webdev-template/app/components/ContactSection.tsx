@@ -4,8 +4,8 @@ export const ContactSection = () => {
 	return (
 		<section id="contact" className="py-12 sm:py-20 px-4 bg-[#161B22] scroll-mt-20">
 			<div className="max-w-4xl mx-auto text-center px-4 sm:px-6">
-				<h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Let's collaborate!</h2>
-				<p className="text-sm sm:text-base text-gray-400 mb-6">Have a creative project in mind? I'd love to help bring it to life!</p>
+				<h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Let&apos;s collaborate!</h2>
+				<p className="text-sm sm:text-base text-gray-400 mb-6">Have a creative project in mind? I&apos;d love to help bring it to life!</p>
 
 				{/* Location */}
 				<div className="flex items-center justify-center gap-2 text-gray-400 mb-8">
@@ -34,7 +34,7 @@ export const ContactSection = () => {
 						Get in Touch
 					</a>
 					<a
-						href="/resume.pdf"
+						href="/ClaudiaRebecaHodorogaCV.pdf"
 						target="_blank"
 						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#21262D] border border-gray-800 rounded-lg font-medium hover:bg-gray-900 transition-colors"
 					>

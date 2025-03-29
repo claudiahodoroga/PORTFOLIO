@@ -11,11 +11,7 @@ export const ProjectsSection = () => {
 						{
 							title: 'Guardian of The Breadth',
 							description: 'A first-person 3D puzzle game where players navigate and escape-room-like environment while uncovering a deep narrative. Built in Unity, worked in a team of 4 as Project Manager and Technical Artist.',
-							metrics: {
-								Puzzles: 90,
-								Visuals: 100,
-								Immersion: 85,
-							},
+							metrics: ['Puzzles'],
 							techDetails: ['Unity (C#)', 'Custom Shaders (HLSL & ShaderGraph)', '3D Modelling', 'Story-driver level design'],
 							image: '/code.jpg',
 							link: 'https://guardian-of-the-breadth.itch.io/game',
@@ -23,11 +19,7 @@ export const ProjectsSection = () => {
 						{
 							title: 'WebGL Galaxy Generator',
 							description: 'A WebGL-based galaxy generator that creates a randomized starry sky with a planet, using procedural techniques.',
-							metrics: {
-								Procedural: 90,
-								Visuals: 85,
-								Performance: 80,
-							},
+							metrics: ['Procedural'],
 							techDetails: ['WebGl', 'GLSL', 'Randomixed Planet Generation', 'Optimized Rendering'],
 							image: '/code.jpg',
 							link: 'https://u1988492.github.io/p1_infografica/',
@@ -35,11 +27,7 @@ export const ProjectsSection = () => {
 						{
 							title: 'Concept Art & Digital Drawings',
 							description: 'A collection of my concept art and illustrations, developed for various class projects and personal work.',
-							metrics: {
-								Creativity: 100,
-								Technique: 90,
-								Software: 85,
-							},
+							metrics: ['Creativity', 'Technical Skills', 'Software'],
 							techDetails: ['Clip Studio Paint', 'Character Design', 'SketchBook', 'Digital Painting'],
 							image: '/code.jpg',
 							link: 'https://u1988492.github.io/p1_infografica/',
@@ -55,7 +43,7 @@ export const ProjectsSection = () => {
 									<div className="space-y-3">
 										<h4 className="text-base sm:text-lg font-semibold">Key Highlights</h4>
 										<div className="grid grid-cols-3 gap-2 sm:gap-4">
-											{Object.entries(project.metrics).map(([key, value]) => (
+											{Object.entries(project.metrics).map(([key]) => (
 												<div key={key} className="text-center">
 													<div className="text-2xl font-bold text-pink-400">{key}</div>
 												</div>
