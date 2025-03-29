@@ -24,7 +24,7 @@ export const ContactSection = () => {
 				{/* Contact Buttons */}
 				<div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
 					<a
-						href="mailto:contact@claudiahodoroga.com"
+						href="mailto:claudiahodoroga@outlook.com"
 						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-lg font-medium hover:opacity-90 transition-opacity"
 					>
 						<svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -34,7 +34,7 @@ export const ContactSection = () => {
 						Get in Touch
 					</a>
 					<a
-						href="/ClaudiaRebecaHodorogaCV.pdf"
+						href="/MyCV.pdf"
 						target="_blank"
 						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#21262D] border border-gray-800 rounded-lg font-medium hover:bg-gray-900 transition-colors"
 					>
