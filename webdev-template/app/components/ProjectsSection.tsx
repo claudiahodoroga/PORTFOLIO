@@ -30,7 +30,7 @@ export const ProjectsSection = () => {
               metrics: ['Artistic Expression', 'Character Design', 'Digital Techniques'],
               techDetails: ['Clip Studio Paint', 'Character Design', 'SketchBook', 'Digital Painting'],
               image: '/portrait.jpg',
-			  link: '',
+			  link: 'https://www.artstation.com/artwork/EzJbmn',
             },
           ].map((project) => (
             <div key={project.title} className="bg-[#21262D] rounded-lg overflow-hidden">
