@@ -83,8 +83,6 @@ export const HeroSection = () => {
 						{[
 							{ name: 'GitHub', icon: '🐙', href: 'https://github.com/u1988492' },
 							{ name: 'LinkedIn', icon: '🔗', href: 'https://www.linkedin.com/in/claudia-rebeca-hodoroga-b1a4012b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
-							{ name: 'Instagram', icon: '💬', href: '#' },
-							{ name: 'Blog', icon: '📜', href: '#' },
 						].map((social) => (
 							<a key={social.name} href={social.href} className="group relative p-2 sm:p-3 hover:text-blue-400 transition-colors" aria-label={social.name}>
 								<span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform inline-block">{social.icon}</span>
