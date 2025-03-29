@@ -15,7 +15,7 @@ export const WebCapabilitiesSection = () => {
 						{
 							title: 'Procedural Graphics',
 							icon: '🌌',
-							features: ['WebGL & GLSL', 'Shader Optimization', 'App-like experience'],
+							features: ['WebGL & GLSL', 'Shader Optimization', 'Immersive experiences'],
 						},
 						{
 							title: 'Concept Art & Design',
