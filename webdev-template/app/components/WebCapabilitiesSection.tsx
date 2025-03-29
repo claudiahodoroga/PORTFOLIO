@@ -4,38 +4,38 @@ export const WebCapabilitiesSection = () => {
 	return (
 		<section className="py-12 sm:py-20 px-4">
 			<div className="max-w-6xl mx-auto">
-				<h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center">Modern Web Capabilities</h2>
+				<h2 className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center">Skills in Action</h2>
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 					{[
 						{
-							title: 'WebGL & 3D',
+							title: 'Game Development',
 							icon: '🎮',
-							features: ['Three.js', 'WebGL Shaders', 'Performance optimization'],
+							features: ['Unity (C#)', 'Puzzle & Level Design', 'Storytelling Mechanics'],
 						},
 						{
-							title: 'Progressive Web Apps',
-							icon: '📱',
-							features: ['Offline support', 'Push notifications', 'App-like experience'],
+							title: 'Procedural Graphics',
+							icon: '🌌',
+							features: ['WebGL & GLSL', 'Shader Optimization', 'App-like experience'],
 						},
 						{
-							title: 'Real-time Features',
-							icon: '⚡',
-							features: ['WebSockets', 'WebRTC', 'Server-Sent Events'],
+							title: 'Concept Art & Design',
+							icon: '🖌️',
+							features: ['Character & Environment Art', 'Digital Painting', '3D Modelling'],
 						},
 						{
-							title: 'Browser APIs',
-							icon: '🔧',
-							features: ['File System Access', 'Web Workers', 'Service Workers'],
+							title: 'Frontend Development',
+							icon: '💻',
+							features: ['React & Next.js', 'CSS Animations', 'Responsive UI'],
 						},
 						{
-							title: 'Performance',
+							title: 'Performance Optimization',
 							icon: '🚀',
-							features: ['Code splitting', 'Tree shaking', 'Resource optimization'],
+							features: ['Efficient Rendering', 'Memory Management', 'Code Optimization'],
 						},
 						{
-							title: 'Security',
-							icon: '🔒',
-							features: ['CSP', 'CORS configuration', 'Security headers'],
+							title: 'Creative Coding',
+							icon: '✨',
+							features: ['Generative Art', 'Interactive Experiences', 'WebGL Animations'],
 						},
 					].map((category) => (
 						<div key={category.title} className="group bg-[#161B22] p-6 rounded-lg hover:bg-[#21262D] transition-all">

@@ -8,37 +8,37 @@ export const SkillsSection = () => {
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
 					{[
 						{
-							category: 'Frontend Development',
+							category: 'Game Development',
 							skills: [
-								{ name: 'React & Next.js', level: 95 },
-								{ name: 'TypeScript', level: 90 },
-								{ name: 'Modern CSS', level: 95 },
-								{ name: 'Web Animation', level: 85 },
+								{ name: 'Unity (C#)', level: 90 },
+								{ name: 'Shaders (GLSL/HLSL)', level: 85 },
+								{ name: 'Unreal Engine (BluePrints & C++)', level: 70 },
+								{ name: 'Game Design & UX', level: 88 },
 							],
-							icon: '🎨',
-							color: 'from-blue-500 to-blue-700',
+							icon: '🎮',
+							color: 'from-pink-500 to-pink-700',
 						},
 						{
-							category: 'Backend & APIs',
+							category: 'Creative Coding & Graphics',
 							skills: [
-								{ name: 'Node.js', level: 90 },
-								{ name: 'RESTful APIs', level: 95 },
-								{ name: 'GraphQL', level: 85 },
-								{ name: 'Database Design', level: 88 },
+								{ name: 'WebGL & Three.js', level: 85 },
+								{ name: 'GLSL/HLSL', level: 95 },
+								{ name: 'Procedural Art', level: 70 },
+								{ name: 'Real-time Rendering', level: 88 },
 							],
-							icon: '⚡',
-							color: 'from-green-500 to-green-700',
+							icon: '✨',
+							color: 'from-yellow-500 to-yellow-700',
 						},
 						{
-							category: 'Performance & DevOps',
+							category: 'Frontend & Interactive UI',
 							skills: [
-								{ name: 'Web Performance', level: 92 },
-								{ name: 'CI/CD', level: 88 },
-								{ name: 'Docker', level: 85 },
-								{ name: 'AWS', level: 82 },
+								{ name: 'HTML, CSS, JavaScript', level: 92 },
+								{ name: 'React & Next.js', level: 88 },
+								{ name: 'Web Animation (GSAP)', level: 80 },
+								{ name: 'WebGPU / WebXR', level: 76 },
 							],
-							icon: '🚀',
-							color: 'from-purple-500 to-purple-700',
+							icon: '🖥️',
+							color: 'from-indigo-500 to-indigo-700',
 						},
 					].map((category) => (
 						<div key={category.category} className="bg-[#21262D] rounded-lg p-6 transform hover:scale-[1.02] transition-all">
