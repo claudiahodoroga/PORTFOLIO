@@ -53,7 +53,7 @@ export const ContactSection = () => {
 				{/* Social Links */}
 				<div className="flex justify-center gap-6">
 					<a
-						href="https://github.com"
+						href="https://github.com/u1988492"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
@@ -63,7 +63,7 @@ export const ContactSection = () => {
 						</svg>
 					</a>
 					<a
-						href="https://linkedin.com"
+						href="https://www.linkedin.com/in/claudia-rebeca-hodoroga-b1a4012b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
@@ -73,7 +73,7 @@ export const ContactSection = () => {
 						</svg>
 					</a>
 					<a
-						href="https://twitter.com"
+						href="https://www.instagram.com/c_hodoroga?igsh=eWg3d25tdnhqN2Vh"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
