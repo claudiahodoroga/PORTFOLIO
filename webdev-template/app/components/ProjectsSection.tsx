@@ -25,6 +25,14 @@ export const ProjectsSection = () => {
               link: 'https://u1988492.github.io/p1_infografica/',
             },
             {
+              title: 'Renderiza2 Website',
+              description: 'A sleek, responsive website built to host and showcase a podcast project. Designed and developed solo in under 24 hours.',
+              metrics: ['Rapid Prototyping', 'Design Execution', 'Full-stack Development'],
+              techDetails: ['Figma', 'HTML & CSS', 'JavaScript', 'Responsive Web Design'],
+              image: '/renderiza2-img.png',
+              link: 'https://claudiahodoroga.github.io/renderiza2/',
+            },
+            {
               title: 'Concept Art & Digital Drawings',
               description: 'A collection of my concept art and illustrations, developed for various class projects and personal work.',
               metrics: ['Artistic Expression', 'Character Design', 'Digital Techniques'],
