@@ -34,7 +34,7 @@ export const ContactSection = () => {
 						Get in Touch
 					</a>
 					<a
-						href="/MyCV.pdf"
+						href="/CV2025.pdf"
 						target="_blank"
 						className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#21262D] border border-gray-800 rounded-lg font-medium hover:bg-gray-900 transition-colors"
 					>
