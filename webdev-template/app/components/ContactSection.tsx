@@ -53,7 +53,7 @@ export const ContactSection = () => {
 				{/* Social Links */}
 				<div className="flex justify-center gap-6">
 					<a
-						href="https://github.com/u1988492"
+						href="https://github.com/claudiahodoroga"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
